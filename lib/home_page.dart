@@ -28,18 +28,79 @@ class _HomePageState extends State<HomePage> {
             ),
           IconButton(
             onPressed: (){
-              const Text("Pesquisar");
+              setState(() {
+                TextField();
+              });
             },
             icon: const Icon(Icons.search),
           ),
         ],
       ),
-      drawer: const Drawer(
+      drawer: Drawer(
         backgroundColor: Colors.black,
-        child: 
-        Text("Menu", style: TextStyle(color: Colors.white),),
-        
-      ),
+        child: Column(
+          children: [
+            const Padding(
+              padding: EdgeInsets.only(top: 30.0),
+            ),
+            Row(
+            children: [
+              IconButton(
+                onPressed: (){
+                  Text("Teste");
+                },
+                icon: Icon(Icons.edit, color: Colors.white,),
+              ),
+              Text("Gerenciar perfis", style: TextStyle(color: Colors.white),),
+            ],
+          ),
+          Row(
+            children: [
+              IconButton(
+                onPressed: (){
+                  Text("Teste");
+                },
+                icon: Icon(Icons.settings, color: Colors.white,),
+              ),
+              Text("Configurações do aplicativo", style: TextStyle(color: Colors.white),),
+            ],
+          ),
+          Row(
+            children: [
+              IconButton(
+                onPressed: (){
+                  Text("Teste");
+                },
+                icon: Icon(Icons.person, color: Colors.white,),
+              ),
+              Text("Conta", style: TextStyle(color: Colors.white),),
+            ],
+          ),
+          Row(
+            children: [
+              IconButton(
+                onPressed: (){
+                  Text("Teste");
+                },
+                icon: Icon(Icons.help_outline, color: Colors.white,),
+              ),
+              Text("Ajuda", style: TextStyle(color: Colors.white),),
+            ],
+          ),
+          Row(
+            children: [
+              IconButton(
+                onPressed: (){
+                  Text("Teste");
+                },
+                icon: Icon(Icons.exit_to_app, color: Colors.white,),
+              ),
+              Text("Sair", style: TextStyle(color: Colors.white),),
+            ],
+          ),
+        ],
+      )  
+    ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
