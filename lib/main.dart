@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:patiflix/home_page.dart';
 
 void main() {
-  runApp(const MaterialApp(
+  runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
-    home: HomePage()
+    home: HomePage(),
+    theme: ThemeData(
+      
+    ),
   ));
 }
 
