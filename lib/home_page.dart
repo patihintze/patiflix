@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:patiflix/drawer_item.dart';
 import 'package:patiflix/list_item.dart';
+import 'package:patiflix/search_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -12,42 +12,50 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
 
-  bool barraPesquisa = false;
-  final TextEditingController searchController = TextEditingController(); //barra de pesquisa não está funcionando
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Theme.of(context).colorScheme.onPrimary,
       appBar: AppBar(
-        title: const Text("Patiflix", style: TextStyle(color: Colors.white),),
-        backgroundColor: Colors.black,
-        iconTheme: const IconThemeData(color: Colors.white),
+        title: Text("Patiflix", style: Theme.of(context).textTheme.titleMedium,),
+        backgroundColor: Theme.of(context).colorScheme.onPrimary,
+        iconTheme: Theme.of(context).iconTheme,
         actions: [
           IconButton(
             onPressed: (){
-              setState(() {
-                const Text("Espelhar");
-              });
-              
+              showDialog(
+                context: context, 
+                builder: (BuildContext context){
+                  return AlertDialog(
+                    title: Text("Erro"),
+                    content: Text("Não foi possível conectar ao Wi-Fi, verifique sua conexão."),
+                    actions: [
+                      TextButton(
+                        child: Text("OK"),
+                        onPressed: (){
+                          Navigator.of(context).pop();
+                        },)
+                    ],
+                  );
+                },
+              );
             }, 
             icon: const Icon(Icons.connected_tv),
-            ),
+          ),
           IconButton(
             onPressed: (){
-              setState(() {
-                barraPesquisa = !barraPesquisa;
-                if (!barraPesquisa){
-                  searchController.clear();
-                }             
-              });
+              Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) =>const SearchPage()
+                )
+              );
+
             },
-            icon: Icon(barraPesquisa ? Icons.close : Icons.search),
+            icon: Icon(Icons.search),
           ),
         ],
       ),
       drawer: Drawer(
-        backgroundColor: Colors.black,
+        backgroundColor: Theme.of(context).colorScheme.onPrimary,
         child: Column(
           children: [
             const SizedBox(height: 30,),
@@ -85,18 +93,9 @@ class _HomePageState extends State<HomePage> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Visibility(
-            visible: barraPesquisa,
-            child: Padding(
-              padding: EdgeInsets.all(8.0),
-              child: TextField(
-                controller: searchController,
-              ),
-              ),
-          ),
-          const Padding(
+          Padding(
             padding: EdgeInsets.only(left: 2.0, top: 30.0),
-            child: Text("Recomendações para você", style: TextStyle(color: Colors.white, fontSize: 20),), 
+            child: Text("Recomendações para você", style: Theme.of(context).textTheme.titleMedium,), 
           ),
           const SizedBox(height: 8),
           SizedBox(
@@ -112,9 +111,9 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
 
-          const Padding(
-            padding: EdgeInsets.only(left: 2.0, bottom: 20.0),
-            child: Text("Continue assistindo", style: TextStyle(color: Colors.white, fontSize: 20),), 
+          Padding(
+            padding: EdgeInsets.only(left: 2.0, top: 20.0),
+            child: Text("Continue assistindo", style: Theme.of(context).textTheme.titleMedium,), 
           ),
           const SizedBox(height: 8),
           SizedBox(
