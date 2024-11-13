@@ -14,7 +14,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Scaffold( //teste
       backgroundColor: Theme.of(context).colorScheme.onPrimary,
       appBar: AppBar(
         title: Text("Patiflix", style: Theme.of(context).textTheme.titleMedium,),
