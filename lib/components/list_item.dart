@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 class ListItem extends StatelessWidget {
-  final String img;
+  final String imgFilme;
 
   const ListItem({
     Key? key,
-    required this.img,
+    required this.imgFilme,
   }) : super(key: key);
 
   @override
@@ -15,7 +15,7 @@ class ListItem extends StatelessWidget {
             width: 150,
             height: 300,
             child: 
-            Image(image: AssetImage(img), fit: BoxFit.fill,),
+            Image(image: AssetImage(imgFilme), fit: BoxFit.fill,),
           );
   }
 }
