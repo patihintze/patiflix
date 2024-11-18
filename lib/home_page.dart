@@ -4,7 +4,6 @@ import 'package:patiflix/components/drawer_item.dart';
 import 'package:patiflix/components/list_item.dart';
 import 'package:patiflix/description_page.dart';
 import 'package:patiflix/models/filme.dart';
-import 'package:patiflix/search_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -17,26 +16,26 @@ class _HomePageState extends State<HomePage> {
 
   Filme filme1 = Filme(
     nome: "A face do mal",
-    ano: 2005,
-    descricao: "Testeskjdfwsidjfnsd",
+    ano: 2013,
+    descricao: "Um jovem se muda para uma casa nova com a família e começa a namorar a vizinha, mas essa paixão adolescente acaba abrindo as portas de uma nova dimensão.",
     imgFilme: "assets/film1.jpg",
   );
   Filme filme2 = Filme(
-    nome: "A face do mal",
-    ano: 2005,
-    descricao: "Testeskjdfwsidjfnsd",
+    nome: "O chamado do mal",
+    ano: 2018,
+    descricao: "Um professor universitário e sua esposa, que estão prestes a ter um bebê, são os responsáveis por um ato com consequências horrendas: eles liberam, involuntariamente, uma entidade maligna com pretenções perigosas.",
     imgFilme: "assets/film2.jpg",
   );
   Filme filme3 = Filme(
-    nome: "A face do mal",
-    ano: 2005,
-    descricao: "Testeskjdfwsidjfnsd",
+    nome: "A substancia",
+    ano: 2024,
+    descricao: "Elisabeth Sparkle, renomada por um programa de aeróbica, enfrenta um golpe devastador quando seu chefe a demite. Em meio ao seu desespero, um laboratório lhe oferece uma substância que promete transformá-la em uma versão aprimorada.",
     imgFilme: "assets/film3.jpg",
   );
   Filme filme4 = Filme(
-    nome: "A face do mal",
-    ano: 2005,
-    descricao: "Testeskjdfwsidjfnsd",
+    nome: "O corvo",
+    ano: 2024,
+    descricao: "As almas gêmeas Eric Draven e Shelly Webster são brutalmente assassinadas quando os demônios de seu passado sombrio os alcançam. Atravessando os mundos dos vivos e dos mortos, Draven retorna em busca de vingança sangrenta contra os assassinos.",
     imgFilme: "assets/film4.jpg",
   );
 
@@ -112,9 +111,8 @@ class _HomePageState extends State<HomePage> {
                     GestureDetector(
                       child: Image(image: AssetImage(listFilme[index].imgFilme!)),
                       onTap: () {
-
                           Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => DescriptionPage(), 
+                            builder: (context) => DescriptionPage(filmeEscolhido: listFilme[index])
 /*                             settings: RouteSettings(
                               arguments: listFilme[index]
                             ) */));
