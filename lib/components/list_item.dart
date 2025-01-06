@@ -11,11 +11,13 @@ class ListItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-            padding: const EdgeInsets.all(2),
-            width: 150,
-            height: 300,
-            child: 
-            Image(image: AssetImage(imgFilme), fit: BoxFit.fill,),
-          );
+      padding: const EdgeInsets.all(2),
+      width: 150,
+      height: 300,
+      child: Image(
+        image: AssetImage(imgFilme),
+        fit: BoxFit.fill,
+      ),
+    );
   }
 }
